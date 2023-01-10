@@ -59,77 +59,7 @@
       }
     </style>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
-      <div class="container-fluid">
-        <!-- Navbar brand -->
-        <a class="navbar-brand nav-link" target="_blank" href="http://servidor-202/skatrex/">
-          <strong>Skatrex</strong>
-        </a> 
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
-          aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarExample01">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" aria-current="page" href="#intro">Skates</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="" target="_blank">Acessórios</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="" target="_blank">Roupas</a>
-            </li>
-			<li class="nav-item">
-              <a class="nav-link" href="" target="_blank">Calçados</a>
-            </li>
-          </ul>
-
-          <ul class="navbar-nav list-inline">
-            <!-- Icons -->
-            <!-- Icon dropdown -->
-			<li class="nav-item me-3 me-lg-0 dropdown">
-			  <a
-			    class="nav-link dropdown-toggle"
-			    href="#"
-			    id="navbarDropdown"
-			    role="button"
-			    data-mdb-toggle="dropdown"
-			    aria-expanded="false"
-			  >
-			    <i class="fas fa-user"></i>
-			  </a>
-			  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-				<li>
-				  <a class="dropdown-item" href="#">Log In</a>
-		   	    </li>
-			    <li>
-				  <a class="dropdown-item" href="#">Sign In</a>
-				</li>
-			  </ul>
-			  <!-- Badge -->
-			  <li class="nav-item">
-				<a class="nav-link" href="#">
-				  <span class="badge badge-pill bg-danger"></span>
-				  <span><i class="fas fa-shopping-cart"></i></span>
-				</a>
-			  </li>
-			  <li class="nav-item">
-                <a class="nav-link" href="https://twitter.com/MDBootstrap" rel="nofollow" target="_blank">
-                  <i class="fab fa-twitter"></i>
-                </a>
-			  </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://github.com/mdbootstrap/mdb-ui-kit" rel="nofollow" target="_blank">
-                <i class="fab fa-github"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- Navbar -->
+      <?php include('navbar.php'); ?>
 
     <!-- Carousel wrapper -->
     <div id="introCarousel" class="carousel slide carousel-fade shadow-2-strong" data-mdb-ride="carousel">
@@ -283,7 +213,8 @@
       <!--Section: Content-->
     </div>
   </main>
-  <!--Main layout-->
+  <!-- Main layout -->
+
 
   <!--Footer-->
   <footer class="bg-light text-lg-start">
