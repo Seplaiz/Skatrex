@@ -144,7 +144,7 @@
 
              <!-- Email input -->
            <div class="form-outline mb-4">
-            <input type="tel" name="phone_number" id="form3Example3" class="form-control" />
+            <input type="tel" name="phone_number" id="form3Example3" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" required />
             <label class="form-label" for="form3Example3">Phone Number</label>
            </div>
 
@@ -167,5 +167,3 @@
     </div>
   </div>
 </div>
-
-

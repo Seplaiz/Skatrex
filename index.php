@@ -9,7 +9,7 @@
     if($_POST['form']=="registo"){
       
       /* verifica se jรก existe o user */
-      $sql = "SELECT email,password,username, first_name, last_name FROM users WHERE email='".mysqli_real_escape_string($db,$_POST['email'])."'";
+      $sql = "SELECT email, password, phone_number, first_name, last_name FROM user WHERE email='".mysqli_real_escape_string($db,$_POST['email'])."'";
     
       //echo $sql;
     
@@ -20,7 +20,7 @@
       else{ 
       
         /* contra o sql injection */
-        $username= mysqli_real_escape_string($db,$_POST['username']);
+        $phone_number = mysqli_real_escape_string($db,$_POST['phone_number']);
         $email = mysqli_real_escape_string($db,$_POST['email']);
         $password = mysqli_real_escape_string($db,$_POST['password']);
 		    $first_name= mysqli_real_escape_string($db,$_POST['first_name']);
@@ -30,7 +30,7 @@
         $hashpassword = password_hash($password, PASSWORD_BCRYPT);
         
             
-        $sql="INSERT INTO users(username,email,password,first_name, last_name) VALUES('".$username."','".$email."','".$hashpassword."','".$first_name."', '".$last_name."')";
+        $sql="INSERT INTO user(email, password, phone_number, first_name, last_name) VALUES('".$phone_number."','".$email."','".$hashpassword."','".$first_name."', '".$last_name."')";
         
        // echo $sql;
 		//exit();
@@ -46,7 +46,6 @@
         else{
           
           session_start();
-          $_SESSION['username'] = $username;
           $_SESSION['email'] = $email;
         }
       }
@@ -66,18 +65,18 @@
 
         $aux = mysqli_real_escape_string($db,$_POST['username']);
 
-        //testar se é o email ou username
+        //testar se é o email ou telemóvel
   
          if(strpos($aux,$at)==true){
           $email=$aux;
         }
         else{
-          $username=$aux;
+          $phone_number=$aux;
         }
 
 
        /* verifica a existencia do user e obtem a password para poder comparar com a password dada */
-       $sql = "SELECT email,username,password,photo FROM users WHERE (email='$email' OR username='$username')";
+       $sql = "SELECT email, phone_number, password, photo FROM user WHERE (email='$email' OR phone_number='$phone_number')";
 
        //echo $sql;
      
@@ -91,7 +90,7 @@
         
         if (password_verify($password, $data['password'])){
           $found = true;
-          $username = $data['username'];
+          $phone_number = $data['phone_number'];
           $email=$data['email'];
      
         }
@@ -107,18 +106,18 @@
       if($found != false) // não existe user redirect para registo
       {
         session_start();
-        $_SESSION['username'] = $username;
+        $_SESSION['phone_number'] = $phone_number;
         $_SESSION['email'] = $email;
     
 		
         $rememberme = isset($_POST['rememberme']) ? true : false;
         if ($rememberme){
-        setcookie('username',$fullname, time() + 3600*24*30);
+        setcookie('phone_number',$fullname, time() + 3600*24*30);
         
         }  
       }
       
-      $username = isset($_COOKIE['username']) ? $_COOKIE['username'] : '';
+      $email = isset($_COOKIE['email']) ? $_COOKIE['email'] : '';
       $password = isset($_COOKIE['password']) ? $_COOKIE['password'] : '';
    
     }
