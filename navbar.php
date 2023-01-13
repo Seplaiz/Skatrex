@@ -2,7 +2,7 @@
  <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
       <div class="container-fluid">
         <!-- Navbar brand -->
-        <a class="navbar-brand nav-link" target="_blank" href="http://servidor-202/skatrex/">
+        <a class="navbar-brand nav-link" target="_blank" href="index.php">
           <strong>Skatrex</strong>
         </a> 
         <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
@@ -44,7 +44,7 @@
 				  <a class="dropdown-item" href="" data-mdb-toggle="modal" data-mdb-target="#loginModal">Log In</a>
 		   	    </li>
 			    <li>
-				  <a class="dropdown-item" href="" data-mdb-toggle="modal" data-mdb-target="#registoModal" >Sign Up</a>
+				  <a class="dropdown-item" href="" data-mdb-toggle="modal" data-mdb-target="#registerModal" >Sign Up</a>
 				</li>
 			  </ul>
 			  <!-- Badge -->
@@ -54,16 +54,6 @@
 				  <span><i class="fas fa-shopping-cart"></i></span>
 				</a>
 			  </li>
-			  <li class="nav-item">
-                <a class="nav-link" href="https://twitter.com/MDBootstrap" rel="nofollow" target="_blank">
-                  <i class="fab fa-twitter"></i>
-                </a>
-			  </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://github.com/mdbootstrap/mdb-ui-kit" rel="nofollow" target="_blank">
-                <i class="fab fa-github"></i>
-              </a>
-            </li>
           </ul>
         </div>
       </div>
@@ -76,12 +66,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
         <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
           <!-- Login Form -->
-            <form>
+          <form action="index.php" method="POST">
+        <input type="hidden" name="form" value="login" />
             <!-- Email input -->
             <div class="form-outline mb-4">
                 <input type="email" id="form2Example1" class="form-control" />
@@ -115,34 +106,66 @@
 
             <!-- Register buttons -->
             <div class="text-center">
-                <p>Not a member? <a href="#!">Register</a></p>
-                <p>or sign up with:</p>
-                <button type="button" class="btn btn-secondary btn-floating mx-1">
-                <i class="fab fa-facebook-f"></i>
-                </button>
-
-                <button type="button" class="btn btn-secondary btn-floating mx-1">
-                <i class="fab fa-google"></i>
-                </button>
-
-                <button type="button" class="btn btn-secondary btn-floating mx-1">
-                <i class="fab fa-twitter"></i>
-                </button>
-
-                <button type="button" class="btn btn-secondary btn-floating mx-1">
-                <i class="fab fa-github"></i>
-                </button>
+                <p>Not a member? <a href="" data-mdb-dismiss="modal" data-mdb-toggle="modal" data-mdb-target="#registerModal">Register</a></p>
             </div>
             </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+        <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Register Form -->
+        <form action="index.php" method="POST">
+        <input type="hidden" name="form" value="register" />
+          <!-- 2 column grid layout with text inputs for the first and last names -->
+          <div class="row mb-4">
+            <div class="col">
+               <div class="form-outline">
+                 <input type="text" name="first_name" id="form3Example1" class="form-control" />
+                 <label class="form-label" for="form3Example1">First Name</label>
+               </div>
+             </div>
+             <div class="col">
+               <div class="form-outline">
+                <input type="text" name="last_name" id="form3Example2" class="form-control" />
+                 <label class="form-label" for="form3Example2">Last Name</label>
+               </div>
+             </div>
+           </div>
 
+             <!-- Email input -->
+           <div class="form-outline mb-4">
+            <input type="tel" name="phone_number" id="form3Example3" class="form-control" />
+            <label class="form-label" for="form3Example3">Phone Number</label>
+           </div>
+
+            <!-- Email input -->
+           <div class="form-outline mb-4">
+             <input type="email" name="email" id="form3Example3" class="form-control" />
+             <label class="form-label" for="form3Example3">Email Address</label>
+           </div>
+
+            <!-- Password input -->
+           <div class="form-outline mb-4">
+             <input type="password" name="password" id="form3Example4" class="form-control" />
+             <label class="form-label" for="form3Example4">Password</label>
+           </div>
+
+            <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block mb-4">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 

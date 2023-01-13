@@ -1,3 +1,138 @@
+<?php
+  include ("./connection.php");
+  $link="index.php";
+  $erro=0;
+  
+  if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    
+    /* se for um registo */
+    if($_POST['form']=="registo"){
+      
+      /* verifica se jรก existe o user */
+      $sql = "SELECT email,password,username, first_name, last_name FROM users WHERE email='".mysqli_real_escape_string($db,$_POST['email'])."'";
+    
+      //echo $sql;
+    
+      if($result = mysqli_query($db,$sql) && isset($result['email'])){
+        
+        //todo user já existe
+      }
+      else{ 
+      
+        /* contra o sql injection */
+        $username= mysqli_real_escape_string($db,$_POST['username']);
+        $email = mysqli_real_escape_string($db,$_POST['email']);
+        $password = mysqli_real_escape_string($db,$_POST['password']);
+		    $first_name= mysqli_real_escape_string($db,$_POST['first_name']);
+        $last_name= mysqli_real_escape_string($db,$_POST['last_name']);
+
+        /*Encriptar a password*/
+        $hashpassword = password_hash($password, PASSWORD_BCRYPT);
+        
+            
+        $sql="INSERT INTO users(username,email,password,first_name, last_name) VALUES('".$username."','".$email."','".$hashpassword."','".$first_name."', '".$last_name."')";
+        
+       // echo $sql;
+		//exit();
+        
+        $result=mysqli_query($db,$sql);
+        
+        /* se houver erro no insert */
+        if(!$result){
+          $erro=1;
+          //echo $result;
+          //exit();
+        }
+        else{
+          
+          session_start();
+          $_SESSION['username'] = $username;
+          $_SESSION['email'] = $email;
+        }
+      }
+    }
+    
+    /* se for login */
+    if($_POST['form']=="login"){
+      
+      $error_message="";
+      
+        $password = mysqli_real_escape_string($db,$_POST['password']);
+      //  $crypt_pass = password_hash($password, PASSWORD_BCRYPT);  // cifra a password do form
+        $found = false;
+        $username = '';
+        $email = '';
+        $at = '@';
+
+        $aux = mysqli_real_escape_string($db,$_POST['username']);
+
+        //testar se é o email ou username
+  
+         if(strpos($aux,$at)==true){
+          $email=$aux;
+        }
+        else{
+          $username=$aux;
+        }
+
+
+       /* verifica a existencia do user e obtem a password para poder comparar com a password dada */
+       $sql = "SELECT email,username,password,photo FROM users WHERE (email='$email' OR username='$username')";
+
+       //echo $sql;
+     
+      $result = mysqli_query($db,$sql);
+
+      if ($data = mysqli_fetch_array($result)){
+       
+        /* se as passwords forem iguais ?  então existe o utilizador 
+       echo $crypt_pass."------>". $data['password'];
+		    exit();*/
+        
+        if (password_verify($password, $data['password'])){
+          $found = true;
+          $username = $data['username'];
+          $email=$data['email'];
+     
+        }
+        else{
+          $erro=2;
+        }	
+      }
+      else{
+        $erro=3;
+      }		
+    
+    
+      if($found != false) // não existe user redirect para registo
+      {
+        session_start();
+        $_SESSION['username'] = $username;
+        $_SESSION['email'] = $email;
+    
+		
+        $rememberme = isset($_POST['rememberme']) ? true : false;
+        if ($rememberme){
+        setcookie('username',$fullname, time() + 3600*24*30);
+        
+        }  
+      }
+      
+      $username = isset($_COOKIE['username']) ? $_COOKIE['username'] : '';
+      $password = isset($_COOKIE['password']) ? $_COOKIE['password'] : '';
+   
+    }
+    
+  }
+    
+
+  else{
+    session_start();
+  }
+  
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
