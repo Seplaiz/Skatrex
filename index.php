@@ -6,7 +6,7 @@
   if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     
     /* se for um registo */
-    if($_POST['form']=="registo"){
+    if($_POST['form']=="register"){
       
       /* verifica se jรก existe o user */
       $sql = "SELECT email, password, phone_number, first_name, last_name FROM user WHERE email='".mysqli_real_escape_string($db,$_POST['email'])."'";
@@ -20,9 +20,9 @@
       else{ 
       
         /* contra o sql injection */
-        $phone_number = mysqli_real_escape_string($db,$_POST['phone_number']);
         $email = mysqli_real_escape_string($db,$_POST['email']);
         $password = mysqli_real_escape_string($db,$_POST['password']);
+        $phone_number = mysqli_real_escape_string($db,$_POST['phone_number']);
 		    $first_name= mysqli_real_escape_string($db,$_POST['first_name']);
         $last_name= mysqli_real_escape_string($db,$_POST['last_name']);
 
@@ -30,7 +30,7 @@
         $hashpassword = password_hash($password, PASSWORD_BCRYPT);
         
             
-        $sql="INSERT INTO user(email, password, phone_number, first_name, last_name) VALUES('".$phone_number."','".$email."','".$hashpassword."','".$first_name."', '".$last_name."')";
+        $sql="INSERT INTO user(email, password, phone_number, first_name, last_name) VALUES('".$email."','".$hashpassword."', '".$phone_number."','".$first_name."', '".$last_name."')";
         
        // echo $sql;
 		//exit();
@@ -59,11 +59,11 @@
         $password = mysqli_real_escape_string($db,$_POST['password']);
       //  $crypt_pass = password_hash($password, PASSWORD_BCRYPT);  // cifra a password do form
         $found = false;
-        $username = '';
+        $phone_number = '';
         $email = '';
         $at = '@';
 
-        $aux = mysqli_real_escape_string($db,$_POST['username']);
+        $aux = mysqli_real_escape_string($db,$_POST['email']);
 
         //testar se é o email ou telemóvel
   
@@ -76,7 +76,7 @@
 
 
        /* verifica a existencia do user e obtem a password para poder comparar com a password dada */
-       $sql = "SELECT email, phone_number, password, photo FROM user WHERE (email='$email' OR phone_number='$phone_number')";
+       $sql = "SELECT email, password, phone_number, first_name, last_name FROM user WHERE (email='$email' OR phone_number='$phone_number')";
 
        //echo $sql;
      
@@ -133,12 +133,13 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Material Design for Bootstrap</title>
+    <title>Skatrex Store</title>
+    <link rel="icon" type="image/x-icon" href="/img/skatrexlogo.ico">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- Google Fonts Roboto -->

@@ -1,3 +1,11 @@
+<?php
+
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+
+?>
+ 
  <!-- Navbar -->
  <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
       <div class="container-fluid">
@@ -28,25 +36,40 @@
           <ul class="navbar-nav list-inline">
             <!-- Icons -->
             <!-- Icon dropdown -->
-			<li class="nav-item me-3 me-lg-0 dropdown">
-			  <a
-			    class="nav-link dropdown-toggle"
-			    href="#"
-			    id="navbarDropdown"
-			    role="button"
-			    data-mdb-toggle="dropdown"
-			    aria-expanded="false"
-			  >
-			    <i class="fas fa-user"></i>
-			  </a>
-			  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-				<li>
-				  <a class="dropdown-item" href="" data-mdb-toggle="modal" data-mdb-target="#loginModal">Log In</a>
-		   	    </li>
-			    <li>
-				  <a class="dropdown-item" href="" data-mdb-toggle="modal" data-mdb-target="#registerModal" >Sign Up</a>
-				</li>
-			  </ul>
+          <?php
+
+            if(isset($_SESSION['email'])){ ?>
+
+            <li class="nav-item">
+				      <a class="nav-link" href="logout.php">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
+            </li>
+
+          <?php  } else { ?>
+
+            <li class="nav-item me-3 me-lg-0 dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-mdb-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-user"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" href="" data-mdb-toggle="modal" data-mdb-target="#loginModal">Log In</a>
+                  </li>
+                <li>
+                <a class="dropdown-item" href="" data-mdb-toggle="modal" data-mdb-target="#registerModal" >Sign Up</a>
+              </li>
+              </ul>
+
+
+          <?php } ?>
 			  <!-- Badge -->
 			  <li class="nav-item">
 				<a class="nav-link" href="#">
@@ -75,13 +98,13 @@
         <input type="hidden" name="form" value="login" />
             <!-- Email input -->
             <div class="form-outline mb-4">
-                <input type="email" id="form2Example1" class="form-control" />
-                <label class="form-label" for="form2Example1">Email address</label>
+                <input type="email" name="email" id="form2Example1" class="form-control" />
+                <label class="form-label" for="form2Example1">Email address or Phone number</label>
             </div>
 
             <!-- Password input -->
             <div class="form-outline mb-4">
-                <input type="password" id="form2Example2" class="form-control" />
+                <input type="password" name="password" id="form2Example2" class="form-control" />
                 <label class="form-label" for="form2Example2">Password</label>
             </div>
 
@@ -130,21 +153,23 @@
           <div class="row mb-4">
             <div class="col">
                <div class="form-outline">
+                  <!--- First Name input --->
                  <input type="text" name="first_name" id="form3Example1" class="form-control" />
                  <label class="form-label" for="form3Example1">First Name</label>
                </div>
              </div>
              <div class="col">
                <div class="form-outline">
+                  <!--- Last Name input --->
                 <input type="text" name="last_name" id="form3Example2" class="form-control" />
-                 <label class="form-label" for="form3Example2">Last Name</label>
+                <label class="form-label" for="form3Example2">Last Name</label>
                </div>
              </div>
            </div>
 
-             <!-- Email input -->
+             <!-- Phone Number input -->
            <div class="form-outline mb-4">
-            <input type="tel" name="phone_number" id="form3Example3" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" required />
+            <input type="number" name="phone_number" id="form3Example3" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" required />
             <label class="form-label" for="form3Example3">Phone Number</label>
            </div>
 
