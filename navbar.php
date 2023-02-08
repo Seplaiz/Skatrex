@@ -20,16 +20,16 @@ if (session_status() === PHP_SESSION_NONE) {
         <div class="collapse navbar-collapse" id="navbarExample01">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item active">
-              <a class="nav-link" aria-current="page" href="#intro">Skates</a>
+              <a class="nav-link" aria-current="page" href="index.php?cat=3">Skates</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="" target="_blank">Acessórios</a>
+              <a class="nav-link" href="index.php?cat=2"> Acessórios</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="" target="_blank">Roupas</a>
+              <a class="nav-link" href="index.php?cat=4">Roupas</a>
             </li>
-			<li class="nav-item">
-              <a class="nav-link" href="" target="_blank">Calçados</a>
+			      <li class="nav-item">
+              <a class="nav-link" href="index.php?cat=1">Calçados</a>
             </li>
           </ul>
 

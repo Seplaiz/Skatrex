@@ -162,21 +162,21 @@
       }
 
       .carousel-item:nth-child(1) {
-        background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+        background-image: url('img/calcadosbanner.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
       }
 
       .carousel-item:nth-child(2) {
-        background-image: url('https://mdbootstrap.com/img/Photos/Others/images/77.jpg');
+        background-image: url('img/skatesbanner.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
       }
 
       .carousel-item:nth-child(3) {
-        background-image: url('https://mdbootstrap.com/img/Photos/Others/images/78.jpg');
+        background-image: url('img/roupasbanner.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
@@ -236,13 +236,7 @@
 
         <!-- Single item -->
         <div class="carousel-item">
-          <div class="mask" style="
-                background: linear-gradient(
-                  45deg,
-                  rgba(29, 236, 197, 0.7),
-                  rgba(91, 14, 214, 0.7) 100%
-                );
-              ">
+          <div class="mask"  style="background-color: rgba(0, 0, 0, 0.3);">
             <div class="d-flex justify-content-center align-items-center h-100">
               <div class="text-white text-center">
                 <h2>And cover it with any mask</h2>
@@ -280,63 +274,53 @@
 
       <!--Section: Content-->
       <section class="text-center">
-        <h4 class="mb-5"><strong>Vans Destaques</strong></h4>
+        <h4 class="mb-5"><strong>Produtos</strong></h4>
 
-        <div class="row">
-          <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card h-100">
-              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="img\VansClassicHat.jpg" width="50%" height="50%" class="img-fluid" />
-                <a href="#!">
-                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Vans Classic Hat</h5>
-                <p class="card-text">
-                  19.99€
-                </p>
-                <a href="#!" class="btn btn-primary">Comprar</a>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <?php
+
+            $cat="";
+            if(isset($_GET['cat'])){
+              $cat=$_GET['cat'];
+            }
+
+            /* verifica a existencia do user e obtem a password para poder comparar com a password dada */
+            $sql = "SELECT prod_id,category_id,prod_name,prod_price,img,stock,create_date FROM product";
+            if($cat!="") $sql.=" WHERE category_id=$cat";
+
+            //echo $sql;
+
+            $result = mysqli_query($db,$sql);
+
+            while ($data = mysqli_fetch_array($result)){ ?>
+            <div class="col"> 
+              <div class="card h-100">
+                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                  <img src="img\<?php echo $data['img']; ?>" width="50%" height="50%" class="img-fluid" />
+                  <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><?php echo $data['prod_name']; ?></h5>
+                  <p class="card-text"><?php echo $data['prod_price']; ?>€</p>
+                  </p>
+                  <a href="#!" class="btn btn-primary">Comprar</a>
+                </div>
               </div>
             </div>
-          </div>
+        
+            <?php }?>
 
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="img\VansBerleProPreto.jpg" width="50%" height="50%" class="img-fluid" />
-                <a href="#!">
-                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Vans Berle Pro</h5>
-                <p class="card-text">
-                  94.99€
-                </p>
-                <a href="#!" class="btn btn-primary">Comprar</a>
-              </div>
             </div>
-          </div>
+       
 
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="img\VansMeiasCheckerboard.jpg" width="100" height="100" class="img-fluid" />
-                <a href="#!">
-                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                </a>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Vans Meias Checkerboard</h5>
-                <p class="card-text">
-                  14.99€
-                </p>
-                <a href="#!" class="btn btn-primary">Comprar</a>
-              </div>
-            </div>
-          </div>
-        </div>
+
+
+
+
+
       </section>
       <!--Section: Content-->
 
