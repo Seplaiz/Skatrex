@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Fev-2023 às 12:34
+-- Tempo de geração: 14-Fev-2023 às 14:13
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 8.0.10
 
@@ -105,9 +105,20 @@ INSERT INTO `product` (`prod_id`, `category_id`, `prod_name`, `prod_price`, `img
 (12, 4, 'MERGE4 HAVEN TALL BLUE', 14.99, 'Merge4HavenTallBlue.JPG', 8, '2023-01-07'),
 (13, 4, 'MERGE4 CHECK YELLOW / BLACK', 14.99, 'Merge4CheckYellowBlack.JPG', 4, '2023-01-07'),
 (15, 3, 'G2 RAMONES SKATEBOARD 7.75', 129.99, 'G2RamonesSkateboard.jpg', 5, '2023-02-08'),
-(16, 3, 'ElEMENT HIERO SKATEBOARD 7.75', 109.99, 'ElementHieroSkateboard.jpg', 3, '2023-02-08'),
+(16, 3, 'ELEMENT HIERO SKATEBOARD 7.75', 109.99, 'ElementHieroSkateboard.jpg', 3, '2023-02-08'),
 (17, 3, 'BLIND BUST OUT REAPER WHITE SKATEBOARD 7.625', 94.99, 'BlindBustOutReaperWhite.jpg', 7, '2023-02-08'),
-(18, 3, 'ENJOI CANDY COATED PINK SKATEBOARD 8.25', 94.99, 'EnjoiCandyCoatedPink.jpg', 6, '2023-02-08');
+(18, 3, 'ENJOI CANDY COATED PINK SKATEBOARD 8.25', 94.99, 'EnjoiCandyCoatedPink.jpg', 6, '2023-02-08'),
+(19, 3, 'ELEMENT FAUNA PARTY 7.75 SKATEBOARD', 109.99, 'ElementFaunaPartySkateboard.jpg', 2, '2023-02-14'),
+(20, 3, 'ENJOI CREEPER MINT 8.0 SKATEBOARD', 94.99, 'EnjoiCreeperMintSkateboard.jpg', 4, '2023-02-14'),
+(21, 3, 'SANTA CRUZ OBSCURE DOT MINI 7.75 SKATEBOARD', 99.99, 'SantaCruzObscureDotMiniSkateboard.jpg', 6, '2023-02-14'),
+(22, 3, 'SANTA CRUZ MANDALA HAND FULL 8.0 SKATEBOARD', 99.99, 'SantaCruzMandaaHandFullSkateboard.jpg', 3, '2023-02-14'),
+(23, 3, 'SANTA CRUZ FLIER HAND LARGE 8.25 SKATEBOARD', 99.99, 'SantaCruzFlierHandLargeSkateboard.jpg', 5, '2023-02-14'),
+(24, 2, 'CARHARTT MADISON LOGO CAP (White)', 34.99, 'CarharttMadisonLogoCapWhite.jpg', 7, '2023-02-14'),
+(25, 2, 'CARHARTT MADISON LOGO CAP (Green)', 34.99, 'CarharttMadisonLogoCapGreen.jpg', 6, '2023-02-14'),
+(26, 2, 'REKD ELITE 2.0 BLACK HELMET', 44.99, 'RekdEliteBlackHelmet.jpg', 4, '2023-02-14'),
+(28, 2, 'REKD ELITE 2.0 WHITE HELMET', 44.99, 'RekdEliteWhiteHelmet.jpg', 7, '2023-02-14'),
+(29, 2, 'REKD JUNIOR ELITE 2.0 HELMET', 44.99, 'RekdEliteBlackHelmetJunior.jpg', 4, '2023-02-14'),
+(30, 2, 'REKD JUNIOR ELITE 2.0 HELMET WHITE', 44.99, 'RekdEliteWhiteHelmetJunior', 5, '2023-02-14');
 
 -- --------------------------------------------------------
 
@@ -216,7 +227,7 @@ ALTER TABLE `order_details`
 -- AUTO_INCREMENT de tabela `product`
 --
 ALTER TABLE `product`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de tabela `product_categories`
