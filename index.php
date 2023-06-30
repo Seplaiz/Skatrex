@@ -271,7 +271,9 @@
       <!--Section: Content-->
 
       <hr class="my-5" />
-      <input class="value" type="text" placeholder="Search.."> <!--?php SELECT * FROM `product` WHERE prod_name LIKE value ?>
+      <form action="search.php" method="post">
+        <input class="value" name="search" type="text" placeholder="Search..">
+      </form>
       <!--Section: Content-->
       <section class="text-center">
         <h4 class="mb-5"><strong>Produtos</strong></h4>
@@ -285,8 +287,7 @@
               $cat=$_GET['cat'];
             }
 
-            /* verifica a existencia do user e obtem a password para poder comparar com a password dada */
-            $sql = "SELECT prod_id,category_id,prod_name,prod_price,img,stock,create_date FROM product";
+            $sql = "SELECT prod_id, category_id, prod_name, prod_price, img, stock, create_date FROM product";
             if($cat!="") $sql.=" WHERE category_id=$cat";
 
             //echo $sql;
