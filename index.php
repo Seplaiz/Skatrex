@@ -212,12 +212,9 @@
           <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
             <div class="d-flex justify-content-center align-items-center h-100">
               <div class="text-white text-center">
-                <h1 class="mb-3">Learn Bootstrap 5 with MDB</h1>
-                <h5 class="mb-4">Best & free guide of responsive web design</h5>
-                <a class="btn btn-outline-light btn-lg m-2" href="https://www.youtube.com/watch?v=c9B4TPnak1A"
-                  role="button" rel="nofollow" target="_blank">Start tutorial</a>
-                <a class="btn btn-outline-light btn-lg m-2" href="https://mdbootstrap.com/docs/standard/"
-                  target="_blank" role="button">Download MDB UI KIT</a>
+                <h1 class="mb-3">Calçados</h1>
+                <a class="btn btn-outline-light btn-lg m-2" href="index.php?cat=1"
+                  role="button" rel="nofollow" target="_blank">Ver Produtos</a>
               </div>
             </div>
           </div>
@@ -228,7 +225,9 @@
           <div class="mask" style="background-color: rgba(0, 0, 0, 0.3);">
             <div class="d-flex justify-content-center align-items-center h-100">
               <div class="text-white text-center">
-                <h2>You can place here any content</h2>
+                <h1 class="mb-3">Skates</h1>
+                <a class="btn btn-outline-light btn-lg m-2" href="index.php?cat=3"
+                  role="button" rel="nofollow" target="_blank">Ver Produtos</a>
               </div>
             </div>
           </div>
@@ -239,10 +238,9 @@
           <div class="mask"  style="background-color: rgba(0, 0, 0, 0.3);">
             <div class="d-flex justify-content-center align-items-center h-100">
               <div class="text-white text-center">
-                <h2>And cover it with any mask</h2>
-                <a class="btn btn-outline-light btn-lg m-2"
-                  href="https://mdbootstrap.com/docs/standard/content-styles/masks/" target="_blank" role="button">Learn
-                  about masks</a>
+                <h1 class="mb-3">Acessórios</h1>
+                <a class="btn btn-outline-light btn-lg m-2" href="index.php?cat=2"
+                  role="button" rel="nofollow" target="_blank">Ver Produtos</a>
               </div>
             </div>
           </div>
