@@ -25,6 +25,7 @@
         $phone_number = mysqli_real_escape_string($db,$_POST['phone_number']);
 		    $first_name= mysqli_real_escape_string($db,$_POST['first_name']);
         $last_name= mysqli_real_escape_string($db,$_POST['last_name']);
+        $is_admin= mysqli_real_escape_string($db,$_POST['IsAdmin']);
 
         /*Encriptar a password*/
         $hashpassword = password_hash($password, PASSWORD_BCRYPT);
@@ -76,7 +77,7 @@
 
 
        /* verifica a existencia do user e obtem a password para poder comparar com a password dada */
-       $sql = "SELECT email, password, phone_number, first_name, last_name FROM user WHERE (email='$email' OR phone_number='$phone_number')";
+       $sql = "SELECT email, password, phone_number, first_name, last_name, IsAdmin FROM user WHERE (email='$email' OR phone_number='$phone_number')";
 
        //echo $sql;
      
@@ -92,7 +93,7 @@
           $found = true;
           $phone_number = $data['phone_number'];
           $email=$data['email'];
-     
+          $is_admin=$data['IsAdmin'];
         }
         else{
           $erro=2;
@@ -108,6 +109,7 @@
         session_start();
         $_SESSION['phone_number'] = $phone_number;
         $_SESSION['email'] = $email;
+        $_SESSION['is_admin'] = $is_admin;
     
 		
         $rememberme = isset($_POST['rememberme']) ? true : false;
@@ -272,6 +274,14 @@
       <form action="search.php" method="post">
         <input class="value" name="search" type="text" placeholder="Search..">
       </form>
+      <?php
+        $isAdmin = (bool)$_SESSION['is_admin'];
+
+        if ($isAdmin) {
+            echo '<button>Adicionar Produto</button>';
+        }
+      ?>   
+      
       <!--Section: Content-->
       <section class="text-center">
         <h4 class="mb-5"><strong>Produtos</strong></h4>
