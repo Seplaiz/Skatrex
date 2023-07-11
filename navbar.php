@@ -61,10 +61,10 @@ if (session_status() === PHP_SESSION_NONE) {
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
-                <a class="dropdown-item" href="" data-mdb-toggle="modal" data-mdb-target="#loginModal">Log In</a>
+                <a class="dropdown-item" href="" data-mdb-toggle="modal" data-mdb-target="#loginModal">Login</a>
                   </li>
                 <li>
-                <a class="dropdown-item" href="" data-mdb-toggle="modal" data-mdb-target="#registerModal" >Sign Up</a>
+                <a class="dropdown-item" href="" data-mdb-toggle="modal" data-mdb-target="#registerModal" >Signup</a>
               </li>
               </ul>
 
