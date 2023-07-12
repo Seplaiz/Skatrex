@@ -114,8 +114,8 @@
           <div class="mask"  style="background-color: rgba(0, 0, 0, 0.3);">
             <div class="d-flex justify-content-center align-items-center h-100">
               <div class="text-white text-center">
-                <h1 class="mb-3">Acessórios</h1>
-                <a class="btn btn-outline-light btn-lg m-2" href="index.php?cat=2"
+                <h1 class="mb-3">Roupas</h1>
+                <a class="btn btn-outline-light btn-lg m-2" href="index.php?cat=4"
                   role="button" rel="nofollow" target="_blank">Ver Produtos</a>
               </div>
             </div>

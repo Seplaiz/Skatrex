@@ -183,6 +183,12 @@
         background-size: cover;
         background-position: center center;
       }
+      .carousel-item:nth-child(4) {
+        background-image: url('img/acessoriosbanner.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+      }
 
       /* Height for devices larger than 576px */
       @media (min-width: 992px) {
@@ -205,6 +211,7 @@
         <li data-mdb-target="#introCarousel" data-mdb-slide-to="0" class="active"></li>
         <li data-mdb-target="#introCarousel" data-mdb-slide-to="1"></li>
         <li data-mdb-target="#introCarousel" data-mdb-slide-to="2"></li>
+        <li data-mdb-target="#introCarousel" data-mdb-slide-to="3"></li>
       </ol>
 
       <!-- Inner -->
@@ -234,6 +241,20 @@
             </div>
           </div>
         </div>
+
+        <!-- Single item -->
+        <div class="carousel-item">
+          <div class="mask"  style="background-color: rgba(0, 0, 0, 0.3);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="text-white text-center">
+                <h1 class="mb-3">Roupas</h1>
+                <a class="btn btn-outline-light btn-lg m-2" href="index.php?cat=4"
+                  role="button" rel="nofollow" target="_blank">Ver Produtos</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
         <!-- Single item -->
         <div class="carousel-item">
