@@ -7,7 +7,7 @@
 
   if($result) { ?>
     
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8" />
@@ -44,14 +44,20 @@
       }
 
       .carousel-item:nth-child(2) {
-        background-image: url('img/skatesbanner.jpg');
+        background-image: url('img/acessoriosbanner.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
       }
 
       .carousel-item:nth-child(3) {
-        background-image: url('img/roupasbanner.jpg');
+        background-image: url('img/skatesbanner.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+      }
+      .carousel-item:nth-child(4) {
+        background-image: url('img/bannerroupas.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
@@ -72,13 +78,14 @@
 
       <?php include('navbar.php'); ?>
 
-      <!-- Carousel wrapper -->
+    <!-- Carousel wrapper -->
     <div id="introCarousel" class="carousel slide carousel-fade shadow-2-strong" data-mdb-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-mdb-target="#introCarousel" data-mdb-slide-to="0" class="active"></li>
         <li data-mdb-target="#introCarousel" data-mdb-slide-to="1"></li>
         <li data-mdb-target="#introCarousel" data-mdb-slide-to="2"></li>
+        <li data-mdb-target="#introCarousel" data-mdb-slide-to="3"></li>
       </ol>
 
       <!-- Inner -->
@@ -90,6 +97,19 @@
               <div class="text-white text-center">
                 <h1 class="mb-3">Calçados</h1>
                 <a class="btn btn-outline-light btn-lg m-2" href="index.php?cat=1"
+                  role="button" rel="nofollow" target="_blank">Ver Produtos</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single item -->
+        <div class="carousel-item">
+          <div class="mask"  style="background-color: rgba(0, 0, 0, 0.3);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+              <div class="text-white text-center">
+                <h1 class="mb-3">Acessórios</h1>
+                <a class="btn btn-outline-light btn-lg m-2" href="index.php?cat=2"
                   role="button" rel="nofollow" target="_blank">Ver Produtos</a>
               </div>
             </div>
@@ -173,7 +193,7 @@
         </div>
       </div> 
   <?php  }?>
-    <!--Footer-->
+  <!--Footer-->
   <footer class="bg-light text-lg-start">
     <div class="text-center py-4 align-items-center">
       <p>Follow Skatrex on social media</p>
@@ -200,12 +220,14 @@
       © 2023 Copyright:
       <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
     </div>
+    
+    <!-- Copyright -->
   </footer>
+  <!--Footer-->
     <!-- MDB -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <!-- Custom scripts -->
     <script type="text/javascript" src="js/script.js"></script>
-  
   <?php } ?>
 </body>
 </html>

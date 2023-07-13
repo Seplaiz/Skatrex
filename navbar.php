@@ -125,7 +125,7 @@ if (session_status() === PHP_SESSION_NONE) {
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+            <button type="submit" class="btn btn-primary btn-block mb-4">Login</button>
 
             <!-- Register buttons -->
             <div class="text-center">
