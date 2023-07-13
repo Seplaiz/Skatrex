@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 14-Fev-2023 às 14:13
--- Versão do servidor: 10.4.21-MariaDB
--- versão do PHP: 8.0.10
+-- Host: 127.0.0.1:3306
+-- Tempo de geração: 13-Jul-2023 às 04:28
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -118,7 +118,10 @@ INSERT INTO `product` (`prod_id`, `category_id`, `prod_name`, `prod_price`, `img
 (26, 2, 'REKD ELITE 2.0 BLACK HELMET', 44.99, 'RekdEliteBlackHelmet.jpg', 4, '2023-02-14'),
 (28, 2, 'REKD ELITE 2.0 WHITE HELMET', 44.99, 'RekdEliteWhiteHelmet.jpg', 7, '2023-02-14'),
 (29, 2, 'REKD JUNIOR ELITE 2.0 HELMET', 44.99, 'RekdEliteBlackHelmetJunior.jpg', 4, '2023-02-14'),
-(30, 2, 'REKD JUNIOR ELITE 2.0 HELMET WHITE', 44.99, 'RekdEliteWhiteHelmetJunior', 5, '2023-02-14');
+(30, 2, 'REKD JUNIOR ELITE 2.0 HELMET WHITE', 44.99, 'RekdEliteWhiteHelmetJunior.jpg', 5, '2023-02-14'),
+(31, 4, 'Vans Opposite Unite', 39.99, 'Vans-OppositeUnite.jpeg', 9, '2023-07-12'),
+(32, 4, 'Vans Classic Grey', 34.99, 'VansClassicGrey.jpeg', 4, '2023-07-12'),
+(33, 4, 'T-Shirt Trasher Flame Logo Black', 44.99, 't-shirt_trasher_flame_black.jpg', 5, '2023-07-12');
 
 -- --------------------------------------------------------
 
@@ -145,15 +148,17 @@ CREATE TABLE `user` (
   `first_name` varchar(64) NOT NULL,
   `last_name` varchar(64) NOT NULL,
   `phone_number` int(11) NOT NULL,
-  `created_at` date NOT NULL
+  `created_at` date NOT NULL,
+  `IsAdmin` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `user`
 --
 
-INSERT INTO `user` (`user_id`, `email`, `password`, `first_name`, `last_name`, `phone_number`, `created_at`) VALUES
-(4, 'testing@gmail.com', '$2y$10$YNPIMo7IvUtL5WxhExwqo.ojJRfRDiPu9xNI3t/EYmGuSFrKS8xbO', 'Admin', 'teste', 987654321, '0000-00-00');
+INSERT INTO `user` (`user_id`, `email`, `password`, `first_name`, `last_name`, `phone_number`, `created_at`, `IsAdmin`) VALUES
+(5, 'admin@gmail.com', '$2y$10$qm9smVPCWrjNHhkVohaafeAsvkXt0KoFGqHU2gbFw/KZhiOSMTurK', 'Admin', 'Test', 987654321, '0000-00-00', b'1'),
+(10, 'ibecas2021@hotmail.com', '$2y$10$eGqCeTxH7OWYJ/E1nK2.deoV30yEEUJRQfmaY2OomCTLUDwxTiQ.O', 'Irene', 'Bartolo', 912798312, '0000-00-00', b'0');
 
 --
 -- Índices para tabelas despejadas
@@ -227,7 +232,7 @@ ALTER TABLE `order_details`
 -- AUTO_INCREMENT de tabela `product`
 --
 ALTER TABLE `product`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de tabela `product_categories`
@@ -239,7 +244,7 @@ ALTER TABLE `product_categories`
 -- AUTO_INCREMENT de tabela `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Restrições para despejos de tabelas
